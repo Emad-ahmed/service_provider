@@ -2,7 +2,7 @@
 
 
 <link rel="stylesheet" href="css/index.css">
-
+<link rel="stylesheet" href="css/service.css">
 
 
 <div id="carouselExampleCaptions" class="carousel slide">
@@ -43,5 +43,69 @@
       <span class="visually-hidden">Next</span>
     </button>
 </div>
+
+<div class="container">
+  <h1 class="text-center mt-5 mb-4">Plumber</h1>
+
+  <?php
+
+
+
+
+    include 'config.php';
+    $alldata = mysqli_query($conn, "SELECT * FROM user, service_provider where user.id = service_provider.user_id AND service_provider.expertise = 'Plumber'");
+    while ($row = mysqli_fetch_array($alldata)) {
+
+    echo "<main class='grid'>
+    <article>
+      <img src='$row[image]' alt='Sample photo'>
+      <div class='text'>
+        <h3>$row[first_name] $row[last_name]</h3>
+        <p>City: $row[city]</p>
+        <p>Profession: $row[expertise]</p>
+        <a href='tel:$row[mobile]' class='mb'>Mobile: $row[mobile]</a> <br>
+        <a href='show_service.php? id=$row[id]' class='btn btn-primary btn-block mt-3'>Hire Now</a>
+      </div>
+    </article>
+    </main>";
+
+    }
+    ?>
+  
+</div>
+
+
+<div class="container">
+  <h1 class="text-center mt-5 mb-4">Electrician</h1>
+
+  <?php
+
+
+
+
+    include 'config.php';
+    $alldata = mysqli_query($conn, "SELECT * FROM user, service_provider where user.id = service_provider.user_id AND service_provider.expertise = 'Electrician'");
+    while ($row = mysqli_fetch_array($alldata)) {
+
+    echo "<main class='grid'>
+    <article>
+      <img src='$row[image]' alt='Sample photo'>
+      <div class='text'>
+        <h3>$row[first_name] $row[last_name]</h3>
+        <p>City: $row[city]</p>
+        <p>Profession: $row[expertise]</p>
+        <a href='tel:$row[mobile]' class='mb'>Mobile: $row[mobile]</a> <br>
+        <a href='show_service.php? id=$row[id]' class='btn btn-primary btn-block mt-3'>Hire Now</a>
+      </div>
+    </article>
+    </main>";
+
+    }
+    ?>
+  
+</div>
+
+
+
 
 <?php include('footer.php') ?>
