@@ -11,48 +11,36 @@
 
 <link rel="stylesheet" href="css/service.css">
 
-<div class="main">
-  
-  <ul class="cards">
-    
+
+
+<div class="container mt-4 mb-5">
     <?php
+    echo "<h1 class='text-center'>$topic</h1>"; 
+
 
 
     include 'config.php';
 
     $alldata = mysqli_query($conn, "SELECT * FROM user, service_provider where user.id = service_provider.user_id AND service_provider.expertise = '$topic'");
-    $rowcount = mysqli_num_rows($alldata);
     
-    
+
+
     while ($row = mysqli_fetch_array($alldata)) {
-          
-            echo "
-
-            <li class='cards_item'>
-            <div class='card'>
-              <div class='card_content'>
-                <h1 class='card_title mb-3 fw-bolder'>$row[first_name] $row[last_name]</h1>
-                <h4 class='card_title mb-2'>Expertise: $row[expertise]</h4>
-           
-                
-                <button class='btn card_btn'>Read More</button>
-              </div>
-            </div>
-            </li>
-            ";
-          }
-         
-        
-       
+    echo "<main class='grid'>
+    <article>
+      <img src='$row[image]' alt='Sample photo'>
+      <div class='text'>
+        <h3>$row[first_name] $row[last_name]</h3>
+        <p>City: $row[city]</p>
+        <p>Profession: $row[expertise]</p>
+        <a href='tel:$row[mobile]' class='mb'>Mobile: $row[mobile]</a> <br>
+        <a href='show_service.php? id=$row[id]' class='btn btn-primary btn-block mt-3'>Hire Now</a>
+      </div>
+    </article>
     
-  
-   
+    </main>";
+    }
     ?>
-  
-    
-  </ul>
 </div>
-
-<h3 class="made_by">Made with ♡</h3>
 
 <?php include('footer.php') ?>

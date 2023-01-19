@@ -1,0 +1,43 @@
+.container img
+{
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+}
+
+.personal_info
+{
+    border: 1px solid black;
+    box-shadow: 3px 3px 4p 4px;
+    max-width: 30rem !important;
+    padding-left:4rem;
+    padding-right:4rem;
+    border-radius: 1rem;
+    text-align: center;
+    padding-top: 1.4rem;
+    padding-bottom: 1.4rem;
+}
+
+.personal_info h6{
+    margin-bottom: 0.8rem;
+}
+
+.personal_info span
+{
+    color: blue;
+    font-weight: 700;
+}
+
+.mailview
+{
+    border: 1px solid black;
+    box-shadow: 3px 3px 4p 4px;
+    max-width: 30rem !important;
+    padding-left:4rem;
+    padding-right:4rem;
+    border-radius: 1rem;
+    text-align: center;
+    padding-top: 1.4rem;
+    padding-bottom: 1.4rem;
+    margin-left: 4rem;
+}
