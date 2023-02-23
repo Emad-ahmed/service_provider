@@ -41,14 +41,14 @@
     </div>
   </div>
   <div class="footer-right col-md-4 col-sm-6">
-    <h2> Company<span> logo</span></h2>
+    <img src="serviceimg/logo.png" alt="" class="logoimg">
     <p class="menu">
-      <a href="#"> Home</a> |
-      <a href="#"> About</a> |
-      <a href="#"> Services</a> |
-      <a href="#"> Portfolio</a> |
-      <a href="#"> News</a> |
-      <a href="#"> Contact</a>
+      <a href="#"> Home</a> 
+      <a href="about.php">About</a> 
+      <a href="#"> Services</a> 
+      <a href="#"> Portfolio</a> 
+      <a href="#"> News</a> 
+      <a href="#"> Contact</a>  
     </p>
     <p class="name"> Company Name &copy; 2016</p>
   </div>

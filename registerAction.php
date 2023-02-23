@@ -10,7 +10,7 @@ $cpass = md5($_POST['conpassword']);
 
 
 $_name_pattern = "/^[a-zA-Z. ]+$/";
-$_emailPattern = "/^[a-zA-Z0-9_-]{3,}@[a-zA-Z0-9_-]{3,}\.[a-zA-Z]{2,4}$/";
+$_emailPattern = "/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/";
 $_password_pattern = "/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/";
 
 $_duplicate_email = mysqli_query($conn, "SELECT * FROM `user` WHERE email = '$email'");

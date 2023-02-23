@@ -33,7 +33,7 @@
       </div>
 
       <div class="col-md-6">
-        <form action="#" class="contFrm" method="POST">
+        <form action="sendemailcontact.php" class="contFrm" method="POST">
           <div class="row">
             <div class="col-sm-6">
               <input type="text" name="name" placeholder="Your Name" class="inptFld" required />
@@ -52,7 +52,7 @@
             </div>
 
             <div class="col-12">
-              <textarea class="inptFld" rows="" cols="" placeholder="Your Message..." required></textarea>
+              <textarea class="inptFld" name="message" rows="" cols="" placeholder="Your Message..." required></textarea>
             </div>
 
             <div class="col-12">

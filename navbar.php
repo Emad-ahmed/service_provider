@@ -13,6 +13,9 @@ if(isset($_SESSION['email']))
   $data = mysqli_fetch_array($datafetchquery);
   $first_name = $data['first_name'];
   $last_name = $data['last_name'];
+} else{
+  $first_name = "";
+  $last_name = "";
 }
 
 ?>
@@ -52,15 +55,15 @@ if(isset($_SESSION['email']))
         <li>
           <a href="#!">Services</a>
           <ul class="nav-dropdown">
-            <li>
-              <a href="servicemanall.php? expertise=Plumber">Plumber</a>
-            </li>
-            <li>
-              <a href="servicemanall.php? expertise=Electrician">Electrician</a>
-            </li>
-            <li>
-              <a href="servicemanall.php? expertise=Mechanics">Mechanic</a>
-            </li>
+          <?php
+              $query = mysqli_query($conn, "SELECT * FROM `service_category`");
+              while ($row = mysqli_fetch_array($query)) {
+            echo "<li>
+              <a href='servicemanall.php? expertise=$row[category_name]'>$row[category_name]</a>
+              </li>";
+              }
+
+              ?>
           </ul>
         </li>
 
@@ -69,7 +72,7 @@ if(isset($_SESSION['email']))
           if(isset($_SESSION['email']))
           {
             $email = $_SESSION['email'];
-            $datafetchquery = mysqli_query($conn, "SELECT * FROM `user` WHERE email = '$email'");
+            $datafetchquery = mysqli_query($conn, "SELECT * FROM `user` WHERE email = '$email' ORDER BY id DESC LIMIT 3");
 
             $data = mysqli_fetch_array($datafetchquery);
             $first_name = $data['first_name'];
@@ -95,13 +98,33 @@ if(isset($_SESSION['email']))
         </li>
         
         <?php
+        if(isset($_SESSION['email']))
+        {
+          if($data['email'] == 'nakib12@gmail.com')
+          {
+            echo "<li>
+            <a href='showserviceadmin.php'>Show Services</a>
+            </li>
+
+            <li>
+              <a href='addcategory.php'>Add Category</a>
+            </li>
+            
+            ";
+          }
+        }
+       
+        
+        ?>
+        
+        <?php
             if(isset($_SESSION['email'])){
             echo "<div class='dropdown mt-2' style='margin-left:9rem'>
             <button class='dropbtn'>$first_name $last_name <i class='fa fa-sort-desc' aria-hidden='true'></i></button>
             <div class='dropdown-content'>
                 <a href='profile.php'>View Profile</a>
                 <a href='change_password.php'>Change Password</a>   
-                <a href='#'>Start A New Fundraiser</a>
+              
                 <a href='logout.php'>Logout</a>
             </div>
             </div>";

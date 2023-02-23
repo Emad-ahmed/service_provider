@@ -14,33 +14,35 @@
 
 
 <div class="container mt-4 mb-5">
-    <?php
+  <?php
     echo "<h1 class='text-center'>$topic</h1>"; 
-
-
-
-    include 'config.php';
-
-    $alldata = mysqli_query($conn, "SELECT * FROM user, service_provider where user.id = service_provider.user_id AND service_provider.expertise = '$topic'");
+  ?>
+  <main class='grid'>
+    <?php
     
-
-
+    include 'config.php';
+    
+    $alldata = mysqli_query($conn, "SELECT * FROM user, service_provider where user.id = service_provider.user_id AND service_provider.expertise = '$topic'");
     while ($row = mysqli_fetch_array($alldata)) {
-    echo "<main class='grid'>
-    <article>
+      if($row['status'] == "True")
+    {
+      echo "<article>
       <img src='$row[image]' alt='Sample photo'>
       <div class='text'>
         <h3>$row[first_name] $row[last_name]</h3>
         <p>City: $row[city]</p>
         <p>Profession: $row[expertise]</p>
-        <a href='tel:$row[mobile]' class='mb'>Mobile: $row[mobile]</a> <br>
+        <a href='tel:0$row[mobile]' class='mb'>Mobile: 0$row[mobile]</a> <br>
         <a href='show_service.php? id=$row[id]' class='btn btn-primary btn-block mt-3'>Hire Now</a>
       </div>
-    </article>
+    </article>";
+    }
     
-    </main>";
     }
     ?>
+  </main>
 </div>
 
 <?php include('footer.php') ?>
+
+

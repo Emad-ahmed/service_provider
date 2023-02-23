@@ -161,3 +161,10 @@
       margin-left: 0;
     }
   }
+
+.logoimg
+  {
+    width: 15rem;
+    height: 5rem;
+    object-fit: cover;
+  }

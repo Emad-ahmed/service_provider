@@ -1,6 +1,6 @@
 <?php include('navbar.php') ?>
 
-
+    
 <link rel="stylesheet" href="css/index.css">
 <link rel="stylesheet" href="css/service.css">
 
@@ -44,9 +44,21 @@
     </button>
 </div>
 
+
+<div class="mb-3 searchbtn">
+  <form method="POST" action="search_result.php">
+    <div class="d-flex">
+    <input type="text" class="form-control me-2" name="expert"  id="search" placeholder = "Search">
+    <button type="submit" class='btn btn-info text-white'>Submit</button>
+    </div>
+  </form>
+</div>
+
+
+
 <div class="container">
   <h1 class="text-center mt-5 mb-4">Plumber</h1>
-
+  <main class='grid'>
   <?php
 
 
@@ -55,29 +67,32 @@
     include 'config.php';
     $alldata = mysqli_query($conn, "SELECT * FROM user, service_provider where user.id = service_provider.user_id AND service_provider.expertise = 'Plumber'");
     while ($row = mysqli_fetch_array($alldata)) {
-
-    echo "<main class='grid'>
-    <article>
+    if($row['status'] == "True")
+    {
+      echo "
+    <article class='text-center'>
       <img src='$row[image]' alt='Sample photo'>
       <div class='text'>
         <h3>$row[first_name] $row[last_name]</h3>
         <p>City: $row[city]</p>
         <p>Profession: $row[expertise]</p>
         <a href='tel:$row[mobile]' class='mb'>Mobile: $row[mobile]</a> <br>
-        <a href='show_service.php? id=$row[id]' class='btn btn-primary btn-block mt-3'>Hire Now</a>
+        <a href='show_service.php? id=$row[id]' class='btn  btn-block mt-3'>Hire Now</a>
       </div>
     </article>
-    </main>";
-
+    ";
+    }
+    
     }
     ?>
+    </main>
   
 </div>
 
 
 <div class="container">
   <h1 class="text-center mt-5 mb-4">Electrician</h1>
-
+  <main class='grid'>
   <?php
 
 
@@ -86,9 +101,10 @@
     include 'config.php';
     $alldata = mysqli_query($conn, "SELECT * FROM user, service_provider where user.id = service_provider.user_id AND service_provider.expertise = 'Electrician'");
     while ($row = mysqli_fetch_array($alldata)) {
-
-    echo "<main class='grid'>
-    <article>
+    if($row['status'] == "True")
+    {
+      echo "
+    <article class='text-center'>
       <img src='$row[image]' alt='Sample photo'>
       <div class='text'>
         <h3>$row[first_name] $row[last_name]</h3>
@@ -98,11 +114,12 @@
         <a href='show_service.php? id=$row[id]' class='btn btn-primary btn-block mt-3'>Hire Now</a>
       </div>
     </article>
-    </main>";
+    ";
+    }
 
     }
     ?>
-  
+  </main>
 </div>
 
 

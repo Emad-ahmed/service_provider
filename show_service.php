@@ -31,17 +31,18 @@
         </div>
         <div class="col-lg-6 mailview">
             <h2 class="border-bottom  pb-3">Mail Me</h2>
-            <form class="mt-5">
-            <div class="mb-3">
-             
-                <input type="text" class="form-control" id="title" placeholder="Title">
+            <?php
+            echo "<form action='sendmail.php?id=$data[id]' method='POST' class='mt-5'>
+            <div class='mb-3'>
+                <input type='text' name='title' class='form-control' id='title' placeholder='Title'>
             </div>
-            <div class="mb-3">  
-                <textarea name="message" id="message" cols="4" rows="4" placeholder= "Message Me" class="form-control"></textarea>
+            <div class='mb-3'>  
+                <textarea name='message' id='message' cols='4' rows='4' placeholder= 'Message Me' class='form-control'></textarea>
             </div>
            
-            <button type="submit" class="btn btn-primary">Send Message</button>
-            </form>
+            <button type='submit' class='btn btn-primary'>Send Message</button>
+            </form>"
+            ?>
         </div>
     </div>
 </div>

@@ -6,7 +6,7 @@
 
 .brand {
   position: absolute;
-  padding-left: 20px;
+  
   float: left;
   line-height: 70px;
   text-transform: uppercase;
@@ -19,7 +19,8 @@
 }
 
 .nav-container {
-  max-width: 1000px;
+  padding-left: 5%;
+  padding-right: 5%;
   margin: 0 auto;
 }
 
@@ -150,7 +151,7 @@ nav ul li ul li a {
 }
 
 article {
-  max-width: 1000px;
+
   margin: 0 auto;
   padding: 10px;
 }/*# sourceMappingURL=nav.css.map */

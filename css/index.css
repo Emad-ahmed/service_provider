@@ -2,3 +2,18 @@
   height: 30rem;
   object-fit: cover;
 }/*# sourceMappingURL=index.css.map */
+
+
+.searchbtn
+{
+  position: absolute;
+  top: 17.5rem;
+  left: 20rem;
+  width: 45rem;
+
+}
+
+.searchbtn input
+{
+  padding: 0.8rem;
+}
