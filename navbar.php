@@ -38,137 +38,127 @@ if(isset($_SESSION['email']))
     <title>EasyFix</title>
   </head>
   <body>
-  <section class="navigation">
-  <div class="nav-container">
-    <div class="brand">
-      <a href="index.php">EasyFix</a>
-    </div>
-    <nav>
-      <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
-      <ul class="nav-list">
-        <li>
-          <a href="index.php">Home</a>
-        </li>
-        <li>
-          <a href="aboutus.php">About</a>
-        </li>
-        <li>
-          <a href="#!">Services</a>
-          <ul class="nav-dropdown">
-          <?php
+  
+
+<nav>
+	<input id="nav-toggle" type="checkbox">
+	<div class="logo"><a href="index.php">Easy<span class='fix'>Fix</span></a></div>
+	<ul class="links">
+		<li><a href="index.php">Home</a></li>
+		<li><a href="aboutus.php">About</a></li>
+		<li>
+   
+
+    <div class="dropdown">
+      <a onclick="myFunction()" class="dropbtn">Services <i class="fa fa-caret-down" aria-hidden="true"></i>   </a>
+      <div id="myDropdown" class="dropdown-content">
+      <?php
               $query = mysqli_query($conn, "SELECT * FROM `service_category`");
               while ($row = mysqli_fetch_array($query)) {
-            echo "<li>
+            echo "
               <a href='servicemanall.php? expertise=$row[category_name]'>$row[category_name]</a>
-              </li>";
+              ";
               }
 
               ?>
-          </ul>
-        </li>
+      </div>
+    </div>
+    </li>
+    <?php
 
-        <?php
+      if(isset($_SESSION['email']))
+      {
+        $email = $_SESSION['email'];
+        $datafetchquery = mysqli_query($conn, "SELECT * FROM `user` WHERE email = '$email' ORDER BY id DESC LIMIT 3");
 
+        $data = mysqli_fetch_array($datafetchquery);
+        $first_name = $data['first_name'];
+        $last_name = $data['last_name'];
+        $datapanel = $data['panel'];
+
+
+        if($datapanel !="user")
+        echo "
+        <a href='add_service.php'>Add Services</a>
+        ";
+
+
+      }
+
+
+
+      ?>
+
+      <?php
           if(isset($_SESSION['email']))
           {
-            $email = $_SESSION['email'];
-            $datafetchquery = mysqli_query($conn, "SELECT * FROM `user` WHERE email = '$email' ORDER BY id DESC LIMIT 3");
-
-            $data = mysqli_fetch_array($datafetchquery);
-            $first_name = $data['first_name'];
-            $last_name = $data['last_name'];
-            $datapanel = $data['panel'];
-
-
-            if($datapanel !="user")
-            echo "<li>
-            <a href='add_service.php'>Add Services</a>
-            </li>";
-
-
+            if($data['email'] == 'nakib12@gmail.com')
+            {
+              echo "<a href='showserviceadmin.php'>Show Services</a>
+                <a href='addcategory.php'>Add Category</a>";
+            }
           }
-
-
-
+        
+        
         ?>
-      
-        
-        <li>
-          <a href="contact.php">Contact</a>
-        </li>
-        
-        <?php
-        if(isset($_SESSION['email']))
-        {
-          if($data['email'] == 'nakib12@gmail.com')
-          {
-            echo "<li>
-            <a href='showserviceadmin.php'>Show Services</a>
-            </li>
 
-            <li>
-              <a href='addcategory.php'>Add Category</a>
-            </li>
+        <?php
+              if(isset($_SESSION['email']))
+              {
+                if($data['email'] == 'nakib12@gmail.com')
+                {
+                  echo "
+                    <a href='showcategory.php'>Show Category</a>";
+                }
+              }
             
-            ";
-          }
-        }
-       
-        
-        ?>
-        
-        <?php
-            if(isset($_SESSION['email'])){
-            echo "<div class='dropdown mt-2' style='margin-left:9rem'>
-            <button class='dropbtn'>$first_name $last_name <i class='fa fa-sort-desc' aria-hidden='true'></i></button>
-            <div class='dropdown-content'>
-                <a href='profile.php'>View Profile</a>
-                <a href='change_password.php'>Change Password</a>   
-              
-                <a href='logout.php'>Logout</a>
-            </div>
-            </div>";
-            }
-            else{
-              echo " <a href='login.php' class='btn btn-outline-success mt-3' style='margin-left:15rem'>Login</a>";
-            }
-
+            
             ?>
-      </ul>
-     
-    </nav>
+        
     
-  </div>
-</section>
+    <?php
+
+    if(isset($_SESSION['email']))
+    {
+      echo "<li>
+     <div class='dropdown'>
+      <a onclick='myFunction()' class='dropbtn text-info'>$first_name $last_name <i class='fa fa-caret-down' aria-hidden='true'></i>   </a>
+      <div id='myDropdown' class='dropdown-content'>
+          <a href='profile.php'>View Profile</a>
+          <a href='change_password.php'>Change Password</a>   
+        
+          <a href='logout.php'>Logout</a>
+      </div>
+    </div>
+    </li>";
+    } else{
+        echo "<li><a href='login.php' class='DonateNow'>Login</a></li>";
+    }
+      
 
 
+    ?>
+
+
+    
+	</ul>
+	<label for="nav-toggle" class="icon-burger">
+		<div class="line"></div>
+		<div class="line"></div>
+		<div class="line"></div>
+	</label>
+</nav>
+
+
+
+  
+
+
+
+    <script src="js/nav.js"></script>
     <!-- Optional JavaScript; choose one of the two! -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script>
-      (function($) { // Begin jQuery
-    $(function() { // DOM ready
-      // If a link has a dropdown, add sub menu toggle.
-      $('nav ul li a:not(:only-child)').click(function(e) {
-        $(this).siblings('.nav-dropdown').toggle();
-        // Close one dropdown when selecting another
-        $('.nav-dropdown').not($(this).siblings()).hide();
-        e.stopPropagation();
-      });
-      // Clicking away from dropdown will remove the dropdown class
-      $('html').click(function() {
-        $('.nav-dropdown').hide();
-      });
-      // Toggle open and close nav styles on click
-      $('#nav-toggle').click(function() {
-        $('nav ul').slideToggle();
-      });
-      // Hamburger to X toggle
-      $('#nav-toggle').on('click', function() {
-        this.classList.toggle('active');
-      });
-    }); // end DOM ready
-  })(jQuery); // end jQuery
-    </script>
+    
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 

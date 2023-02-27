@@ -91,7 +91,7 @@ if ($dataprofile != '')
   </div>
 </div>
 
-<div class="container mb-5 mt-5">
+<div class="container mb-5 profiletop">
     <div class="row">
         <div class="col-lg-4">
             <div class="d-flex">
@@ -147,7 +147,7 @@ if ($dataprofile != '')
 
 <hr>
 
-<div class="container">
+<div class="container mt-3">
     <h3 class='text-center'>My Resource</h3>
     <main class='grid'>
     <?php

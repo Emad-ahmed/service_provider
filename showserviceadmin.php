@@ -11,9 +11,16 @@ if ($data['email'] == 'nakib12@gmail.com') {
 
 ?>
 
+
+<style>
+  table,tr,td,th{
+    text-align:center;
+  }
+</style>
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<div class="mytableview" style=" width: 70%;  margin: auto; margin-top:5%;">
+<div class="mytableview" style=" width: 70%;  margin: auto; margin-top:10%;">
 
   <div>
 
@@ -24,6 +31,7 @@ if ($data['email'] == 'nakib12@gmail.com') {
         <th>Amount</th>
         <th>Work Hour</th>
         <th>Expertise</th>
+        <th>Nid</th>
         <th>Mobile</th>
         <th>Status</th>
       </tr>
@@ -42,6 +50,7 @@ if ($data['email'] == 'nakib12@gmail.com') {
           <td><?php echo $row['amount_of_tk']; ?></td>
           <td><?php echo $row['work_hour']; ?></td>
           <td><?php echo $row['expertise']; ?></td>
+          <td><a href="<?php echo $row['nid']; ?>" class='btn btn-info' download>Download</a></td>
           <td><?php echo $row['mobile']; ?></td>
           <?php if ($row['status'] != "True")
           {

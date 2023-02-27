@@ -1,19 +1,35 @@
 .carousel-inner img {
   height: 30rem;
-  object-fit: cover;
-}/*# sourceMappingURL=index.css.map */
-
-
-.searchbtn
-{
-  position: absolute;
-  top: 17.5rem;
-  left: 20rem;
-  width: 45rem;
-
+  -o-object-fit: cover;
+     object-fit: cover;
+} 
+.slide {
+  margin-top: 6rem !important;
 }
 
-.searchbtn input
-{
+.searchbtn {
+  position: absolute;
+  top: 19rem;
+  left: 26%;
+  width: 50%;
+}
+
+.searchbtn input {
   padding: 0.8rem;
 }
+
+@media screen and (max-width: 900px) {
+  .searchbtn {
+    position: relative;
+    top: -20rem;
+    left: 1rem;
+    width: 90% !important;
+  }
+  .logoimg {
+    width: 80% !important;
+  }
+}
+.btn-block {
+  background: #420908 !important;
+  color: white !important;
+}/*# sourceMappingURL=index.css.map */

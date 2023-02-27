@@ -1,12 +1,16 @@
+iframe{
+  border-top: 1px solid rgb(168, 163, 163) !important;
+ 
+}
 .footer {
-    background-color: #414141;
+    background-color: #000000;
     width: 100%;
     text-align: left;
     font-family: sans-serif;
     font-weight: bold;
     font-size: 16px;
     padding: 50px;
-    margin-top: 50px;
+
   }
   
   .footer .footer-left,
@@ -145,7 +149,7 @@
     margin: 0;
   }
   
-  @media (max-width: 767px) {
+  @media (max-width: 900px) {
     .footer {
       font-size: 14px;
     }
@@ -160,6 +164,10 @@
     .footer .footer-center i {
       margin-left: 0;
     }
+    .logoimg
+    {
+      width: 80% !important;
+    }
   }
 
 .logoimg
@@ -167,4 +175,14 @@
     width: 15rem;
     height: 5rem;
     object-fit: cover;
+  }
+
+
+  @media screen and (max-width: 900px) {
+  
+      
+    iframe{
+
+      height: 70% !important;
+    }  
   }

@@ -41,3 +41,24 @@
     padding-bottom: 1.4rem;
     margin-left: 4rem;
 }
+
+.showservice
+{
+    margin-top: 8rem !important;
+}
+
+@media screen and (max-width: 900px) {
+  
+      
+    footer img{
+        width: 60% !important;
+    }
+
+    
+.mailview
+{
+    
+    margin-left: 0 !important;
+    margin-top: 4rem !important;
+}
+}

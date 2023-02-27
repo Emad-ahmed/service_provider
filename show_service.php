@@ -3,17 +3,36 @@
 
 
 <?php
+
+    if(!isset($_SESSION['email']))
+    {
+        echo "<script>alert('Login Needed!!')</script>";
+        echo "<script>location.href='login.php'</script>";
+    }
+
     $id = $_GET['id'];
     $datafetchquery = mysqli_query($conn, "SELECT * FROM user, service_provider where user.id = service_provider.user_id AND service_provider.id = '$id'");
     $data = mysqli_fetch_array($datafetchquery);
 ?>
 
 
+<style>
+  .btn-block
+  {
+    background: #420908 !important;
+  }
+  .btn-block:hover{
+    background: white !important;
+    border:1px solid #420908 !important;
+    color: #420908 !important;
+  }
+</style>
+
 <link rel="stylesheet" href="css/serviceshow.css">
 
 
 
-<div class="container mt-4 mb-5 text-center">
+<div class="container showservice mb-5 text-center">
     <div class="row">
         <div class="col-lg-6 personal_info">
             <h2 class="border-bottom pb-3">Personal Info</h2>
@@ -40,7 +59,7 @@
                 <textarea name='message' id='message' cols='4' rows='4' placeholder= 'Message Me' class='form-control'></textarea>
             </div>
            
-            <button type='submit' class='btn btn-primary'>Send Message</button>
+            <button type='submit' class='btn btn-block text-white'>Send Message</button>
             </form>"
             ?>
         </div>

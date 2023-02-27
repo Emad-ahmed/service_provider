@@ -29,15 +29,15 @@
   <div class="footer-center col-md-4 col-sm-6">
     <div>
       <i class="fa fa-map-marker"></i>
-      <p><span> Street name and number</span> City, Country</p>
+      <p><span> Street name and number</span> Sylhet,Bangladesh</p>
     </div>
     <div>
       <i class="fa fa-phone"></i>
-      <p> (+00) 0000 000 000</p>
+      <p>+880 1785-690885</p>
     </div>
     <div>
       <i class="fa fa-envelope"></i>
-      <p><a href="#"> office@company.com</a></p>
+      <p><a href="#">nakib327@gmail.com</a></p>
     </div>
   </div>
   <div class="footer-right col-md-4 col-sm-6">
@@ -50,7 +50,7 @@
       <a href="#"> News</a> 
       <a href="#"> Contact</a>  
     </p>
-    <p class="name"> Company Name &copy; 2016</p>
+    <p class="name"> EasyFix &copy; 2023</p>
   </div>
 </footer>
 

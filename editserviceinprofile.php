@@ -6,7 +6,7 @@
 
 $id = $_GET['id'];
 
-$datafetchqueryprofile = mysqli_query($conn, "SELECT * FROM `service_category` WHERE id = '$id'");
+$datafetchqueryprofile = mysqli_query($conn, "SELECT * FROM `service_provider` WHERE id = '$id'");
 $dataprofile = mysqli_fetch_array($datafetchqueryprofile);
 
 
@@ -28,11 +28,11 @@ $dataprofile = mysqli_fetch_array($datafetchqueryprofile);
 				<h1 class="text text-large text-center ">Edit Services</h1>
                 <hr>
 			</div>
-			<form action="add_serviceAction.php" method="POST"  class="form" enctype="multipart/form-data">
+			<form action="edit_serviceAction.php" method="POST"  class="form" enctype="multipart/form-data">
 
                 <div class="input-control">
 					<label for="amount_of_work" class="input-label">Amount (per hour)</label>
-					<input type="text" value="<?php echo $dataprofile['amount_of_tk	']?>" name="amount_of_work" id="amount_of_work" class="input-field" placeholder="$">
+					<input type="text" value="<?php echo $dataprofile['amount_of_tk']?>" name="amount_of_work" id="amount_of_work" class="input-field" placeholder="$">
 				</div>
 
 				<div class="input-control">
@@ -73,16 +73,16 @@ $dataprofile = mysqli_fetch_array($datafetchqueryprofile);
 				</div>
 
 
-                <div>
-                    <input type="text" name="oldImage" value="<?php echo $data['image'] ?>" class="form-control" hidden>
-                    <input type="text" name="oldNid" value="<?php echo $data['nid'] ?>" class="form-control" hidden>
+                <div> 
+                    <input type="text" name="oldImage" value="<?php echo $dataprofile['add_image']?>"   class="form-control" hidden>
+                    <input type="text" name="oldNid" value="<?php echo $dataprofile['nid']?>"   class="form-control" hidden>
 
-                    <input type="text" name="id" value="<?php echo $data['id'] ?>" class="form-control" hidden>
+                    <input type="text" name="id" value="<?php echo $dataprofile['id']?>"   class="form-control" hidden>
 
                 </div>
 
 				<div class="input-control col-4 m-auto">
-					<input type="submit" name="submit" class="input-submit" value="Add Service">
+					<input type="submit" name="submit" class="input-submit" value="Update Service">
 				</div>
 
 			</form>

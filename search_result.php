@@ -9,7 +9,7 @@
     include 'config.php';
     $expert = $_POST['expert'];
 
-    if (!($expert == "Plumber" || $expert == "Electrician" || $expert == "Mechanics"))
+    if (!($expert == "Plumber" || $expert == "Electrician" || $expert == "Mechanincs"))
     {
       echo "<script>alert('Search Not Found!!')</script>";
       echo "<script>location.href='index.php'</script>";
@@ -27,7 +27,7 @@
     
 
   <?php
-
+    
     include 'config.php';
     $alldata = mysqli_query($conn, "SELECT * FROM user, service_provider where user.id = service_provider.user_id AND service_provider.expertise = '$expert'");
     while ($row = mysqli_fetch_array($alldata)){

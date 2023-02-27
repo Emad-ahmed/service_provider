@@ -16,6 +16,10 @@
 }
 
 
+.main
+{
+  margin-top: 6rem !important;
+}
 
 
 
@@ -23,7 +27,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 80rem;
   min-height: 100vh;
   width: 100%;
   padding: 0 2rem;
@@ -46,7 +49,7 @@
   font-size: 1.65rem;
   line-height: inherit;
   margin-right: 0.5rem;
-  color: var(--color-blue);
+  color: #420908;
 }
 
 .text {
@@ -68,7 +71,7 @@
 .text-links {
   font-size: 1rem;
   font-weight: 400;
-  color: var(--color-blue);
+  color: #420908;
 }
 .text-links:hover {
   text-decoration: underline;
@@ -80,7 +83,7 @@
 }
 
 .main .wrapper {
-  max-width: 32rem;
+  max-width: 35rem;
   width: 100%;
   margin: 2rem auto;
   padding: 2rem 2.5rem;
@@ -89,8 +92,8 @@
   outline: none;
   border-radius: 0.25rem;
   color: var(--color-black);
-  background: var(--color-white);
-  box-shadow: 1px 1px 1px 1px;
+  background: white;
+  box-shadow: 2px 2px 2px 2px;
 }
 .main .wrapper .form {
   width: 100%;
@@ -132,7 +135,7 @@
   outline: none;
   border-radius: 2rem;
   color: var(--color-white);
-  background: var(--color-blue);
+  background: #420908;
   box-shadow: var(--shadow-medium);
   text-transform: capitalize;
   text-rendering: optimizeLegibility;
